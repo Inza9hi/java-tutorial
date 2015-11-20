@@ -11,6 +11,7 @@
 
     <modules>
 
+        <module>j8-tutorial</module>
     </modules>
 
     <properties>
