@@ -23,10 +23,9 @@ public class CollectionOperation {
     }
 
     public static void main(String[] args) {
-//        helloLambda();
-//        useVariable();
+        helloLambda();
+        useVariable();
 
-        stream();
     }
 
 
@@ -63,15 +62,6 @@ public class CollectionOperation {
 
     }
 
-    /**
-     * 什么时候执行的system.out? 再每个元素被消费的时候打印自身!
-     * 多个转换操作只会在汇聚操作的时候融合起来
-     */
-    public static void stream(){
-        List<Integer> nums = Lists.newArrayList(1,1,null,2,3,4,null,5,6,7,8,9,10);
-        System.out.println("sum is:"+nums.stream().filter(num -> num != null).
-                distinct().mapToInt(num -> num * 2).
-                peek(System.out::println).skip(2).limit(4).sum());//
 
-    }
+
 }

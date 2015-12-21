@@ -12,6 +12,8 @@
     <modules>
 
         <module>j8-tutorial</module>
+        <module>java-poc</module>
+        <module>spring-data-tutorial</module>
     </modules>
 
     <properties>
@@ -26,7 +28,7 @@
         <ver.taglib>1.1.2</ver.taglib>
         <ver.spring>4.1.2.RELEASE</ver.spring>
         <ver.spring-security>3.1.4.RELEASE</ver.spring-security>
-        <ver.spring-data-redis>1.1.0.RELEASE</ver.spring-data-redis>
+        <ver.spring-data-redis>1.6.2.RELEASE</ver.spring-data-redis>
         <ver.mybatis>3.2.3</ver.mybatis>
         <ver.quartz>2.2.1</ver.quartz>
         <ver.junit>4.11</ver.junit>
@@ -43,7 +45,7 @@
         <ver.joda-time>2.5</ver.joda-time>
         <ver.sitemesh>2.4.2</ver.sitemesh>
         <ver.super-csv>2.2.0</ver.super-csv>
-        <ver.commons-collections>3.2.1</ver.commons-collections>
+        <ver.commons-collections>3.2.2</ver.commons-collections>
         <ver.commons-codec>1.9</ver.commons-codec>
         <ver.commons-beanutils>1.9.1</ver.commons-beanutils>
         <ver.commons-daemon>1.0.15</ver.commons-daemon>
