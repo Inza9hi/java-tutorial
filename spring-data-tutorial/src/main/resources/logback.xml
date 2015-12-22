@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true" scan="true" scanPeriod="1 minutes">
+	<property resource="config/config-${envTarget}.properties"/>
+
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] [%logger{36}] [%thread] - %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<appender name="FILE_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender" >
+	    <file>${logging.dir}/tutorial.log</file>
+	    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	        <!-- daily rollover -->
+	        <fileNamePattern>${logging.dir}/tutorial.log.%d{yyyy-MM-dd}</fileNamePattern>
+	    </rollingPolicy>
+	    <encoder>
+	        <pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level %logger{35} [%X{x-jjk-rqid:-notFound}]- %msg%n</pattern>
+	    </encoder>
+	    <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+	</appender>
+
+	<appender name="BSS_FILE_APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender" >
+		<file>${logging.dir}/bss/bss.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>${logging.dir}/bss/bss.log.%d{yyyy-MM-dd}</fileNamePattern>
+		</rollingPolicy>
+		<encoder>
+			<!--<pattern>%d{yyyy-MM-dd HH:mm:ss} %-4relative [%thread] %-5level %logger{35} [%X{x-jjk-rqid:-notFound}]- %msg%n</pattern>-->
+			<pattern>%msg%n</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>DEBUG</level>
+		</filter>
+	</appender>
+
+	<logger name="com.ciji" level="DEBUG" />
+	
+	<!-- Spring Framework -->
+<!-- 	<logger name="org.springframework" level="DEBUG" /> -->
+	<logger name="org.springframework.core" level="INFO" />
+	<logger name="org.springframework.beans" level="INFO" />
+	<logger name="org.springframework.context" level="INFO" />
+	<logger name="org.springframework.web" level="INFO" />
+	
+	<!-- MyBatis -->
+	<logger name="org.mybatis" level="DEBUG" />
+
+	<logger name="BSS_LOG" level="INFO">
+		<appender-ref ref="FILE_APPENDER" />
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="BSS_FILE_APPENDER" />
+	</logger>
+
+	<root level="DEBUG">
+		<appender-ref ref="FILE_APPENDER" />
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>
