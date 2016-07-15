@@ -6,7 +6,7 @@ import org.springframework.aop.framework.ProxyFactory;
 /**
  * Created by lawulu on 15-11-24.
  * @see http://docs.spring.io/spring/docs/current/spring-framework-reference/html/aop.html#aop-understanding-aop-proxies
- *
+ * 一个典型的例子就是,嵌套之后 事务就不生效了
  */
 public class ProxyMain {
 

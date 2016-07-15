@@ -13,8 +13,14 @@ public class RedisExampleTest extends AbstractApplicationContext{
 
     @Test
     public void testList(){
-        redisExample.addLink("userId","baidu.com");
+        redisExample.addLink("liulu","baidu.com");
 
     }
+
+    @Test
+    public void pubsub(){
+        redisExample.pub();
+    }
+
 
 }

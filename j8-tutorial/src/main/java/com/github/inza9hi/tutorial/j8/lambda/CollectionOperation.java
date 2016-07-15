@@ -26,6 +26,8 @@ public class CollectionOperation {
         helloLambda();
         useVariable();
 
+        methodRef();;//
+
     }
 
 
@@ -55,10 +57,22 @@ public class CollectionOperation {
         for(Integer i : Lists.newArrayList(1, 2, 3)){
             Stream.of(array).map(item -> Strings.padEnd(item, i, '@')).forEach(System.out::println);
         }
+
+        //i 如果不是final,就会报错
+//        for(int i = 1; i<4; i++){
+//            Stream.of(array).map(item -> Strings.padEnd(item, i, '@')).forEach(System.out::println);
+//        }
     }
 
+//    objectName::instanceMethod
+//    ClassName::staticMethod
+//    ClassName::instanceMethod
+//    前两种方式类似，等同于把lambda表达式的参数直接当成instanceMethod|staticMethod的参数来调用。比如System.out::println等同于x->System.out.println(x)；Math::max等同于(x, y)->Math.max(x,y)。
+//
+//    最后一种方式，等同于把lambda表达式的第一个参数当成instanceMethod的目标对象，其他剩余参数当成该方法的参数。比如String::toLowerCase等同于x->x.toLowerCase()。
+
     public static void methodRef(){
-        names.stream().map(name -> name.charAt(0)).collect(Collectors.toList());//无法方法引用
+        names.stream().map(name -> name.charAt(0)).collect(Collectors.toList()).forEach(System.out::println);//无法方法引用
 
     }
 

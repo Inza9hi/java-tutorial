@@ -9,9 +9,9 @@ public class SimplePojo implements Pojo {
 
     @Override
     public void foo() {
-      //  System.out.println("in the begin of foo");
-       // this.bar();
-      //  System.out.println("===Another way====");
+        System.out.println("in the begin of foo");
+       this.bar();
+        System.out.println("===Another way====");
        ((Pojo) AopContext.currentProxy()).bar();
     }
 
