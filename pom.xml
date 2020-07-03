@@ -17,6 +17,11 @@
         <module>algorithm</module>
         <module>bigdata</module>
         <module>agent</module>
+        <module>webflux</module>
+        <module>springmvc</module>
+
+        <module>redis-benchmark-normal</module>
+        <module>redis-benchmark-reactive</module>
     </modules>
 
     <properties>
