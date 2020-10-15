@@ -24,7 +24,7 @@ public class RedisConsumer implements Runnable {
     try {
       String key = queue.poll();
       while (key != null) {
-        redisTemplate.opsForValue().set(key, key).subscribe();
+        redisTemplate.opsForValue().set(key, key).block();
         key = queue.poll();
       }
     }finally {

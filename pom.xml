@@ -22,6 +22,7 @@
 
         <module>redis-benchmark-normal</module>
         <module>redis-benchmark-reactive</module>
+      <module>bean-mapping</module>
     </modules>
 
     <properties>

@@ -18,10 +18,10 @@ public class NormalRedisApplication  implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
 
-    final int nKeys = 200*1000;
-    benchmarkService.singleThread(nKeys);
+    final int nKeys = 2000*1000;
+//    benchmarkService.singleThread(nKeys);
     benchmarkService.mulitThread(nKeys);
-    benchmarkService.clean(nKeys);
+//    benchmarkService.clean(nKeys);
 
   }
 

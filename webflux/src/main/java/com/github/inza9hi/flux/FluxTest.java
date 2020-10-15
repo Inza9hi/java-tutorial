@@ -16,7 +16,14 @@ public class FluxTest {
 
 
   public static void main(String[] args) throws IOException {
-    debug();
+//    Flux.just(1,2,3).log().buffer(1).log().subscribe(System.out::println);
+
+    Flux<Integer> ints = Flux.range(1, 4);
+    ints.subscribe(i -> System.out.println(i),
+        error -> System.err.println("Error " + error),
+        () -> System.out.println("Done"),
+        sub -> sub.request(3));
+//    debug();
   }
 
   static void create(){

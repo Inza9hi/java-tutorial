@@ -18,7 +18,9 @@ import reactor.core.scheduler.Schedulers;
 @Service
 public class BenchmarkService {
 
-  final ExecutorService executorService = Executors.newFixedThreadPool(2);
+  final static int count = 4;
+
+  final static ExecutorService executorService = Executors.newFixedThreadPool(count);
 
 
   @Autowired
@@ -48,14 +50,18 @@ public class BenchmarkService {
     LinkedBlockingQueue<String> keys = initKeys(nKeys);
 
     Stopwatch stopwatch = Stopwatch.createStarted();
-    CountDownLatch downLatch = new CountDownLatch(4);
-    for (int i = 0; i < 4; i++) {
+    CountDownLatch downLatch = new CountDownLatch(count);
+    for (int i = 0; i < count; i++) {
       RedisConsumer redisConsumer = new RedisConsumer(keys,stringRedisTemplate,downLatch);
       executorService.submit(redisConsumer);
     }
     downLatch.await();
 
     System.out.println("multiThread Time elapsed: "+ stopwatch.elapsed(TimeUnit.MILLISECONDS));
+
+  }
+
+  public void singleThread(int nKeys){
 
   }
 

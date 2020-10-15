@@ -14,8 +14,9 @@ import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
 public class ReactorTest {
+  final static int count = 4;
 
-  final static ExecutorService executorService = Executors.newFixedThreadPool(2);
+  final static ExecutorService executorService = Executors.newFixedThreadPool(count);
 
   public static void main(String[] args) throws InterruptedException {
     final int nKeys = 200*1000;
@@ -55,8 +56,8 @@ public class ReactorTest {
     }
 
     Stopwatch stopwatch = Stopwatch.createStarted();
-    CountDownLatch downLatch = new CountDownLatch(4);
-    for (int i = 0; i < 4; i++) {
+    CountDownLatch downLatch = new CountDownLatch(count);
+    for (int i = 0; i < count; i++) {
       ValueConsumer redisConsumer = new ValueConsumer(keys,downLatch);
       executorService.submit(redisConsumer);
     }
